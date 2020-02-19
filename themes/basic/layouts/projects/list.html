@@ -5,12 +5,12 @@
 {{ .Content }}
 
 <section class="projects">
-	{{ range .Pages }}
-	<section class="project">
-	<h3> <a href="{{ .RelPermalink }}">{{ .Title }} </a></h3>
-	<p>{{ .Summary }}</p>
-	</section>
-	{{ end }}
+  {{ range .Pages }}
+  <section class="project">
+    <h3><a href="{{ .RelPermalink }}">{{ .Title }} </a></h3>
+    <p>{{ .Summary }}</p>
+  </section>
+  {{ end }}
 </section>
 
 {{ end }}
