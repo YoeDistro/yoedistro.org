@@ -1,4 +1,4 @@
-baseURL = "http://example.org/"
+baseURL = "http://www.yoedistro.org/"
 languageCode = "en-us"
 title = "Yoe Distribution"
 theme = "basic"
@@ -7,23 +7,3 @@ theme = "basic"
   featured_image = "/images/yoe-logo.png"
   github = "https://github.com/YoeDistro"
   logo = "/images/yoe-logo.png" # Expecting square dimensions
-
-[[menu.main]]
-    name = "Blog"
-    url = ""
-    weight = 1
-
-
-[[menu.main]]
-    name = "About"
-    url = "about"
-    weight = 2
-
-[[menu.main]]
-    name = "Categories"
-    url = "/categories/"
-    weight = 3
-[[menu.main]]
-    name = "Tags"
-    url = "/tags/"
-    weight = 4
