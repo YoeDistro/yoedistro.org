@@ -1,58 +1,114 @@
-.container {
-	margin: 0 auto;
-	width: 80%;
+* {
+	margin:  0;
+	padding: 0;
 }
 
-/*
-nav, footer {
-	background-color: #333;
-	color: #fff;
-	text-align: center;
+p, form input {
+	margin-bottom: 1em;
 }
 
-nav {
-	display: flex;
-	flex-direction: column;
+form {
+	overflow: hidden;
 }
 
-nav > a {
-	flex: 1;
-	text-align: center;
-	text-decoration: none;
-	color: #fff;
+form input {
+	font-family:  inherit;
+	font-size:    inherit;
+	color:        inherit;
+	background:   inherit;
+	border:       2px solid black;
+	padding:      0.5em 0.7em;
+	display:      block;
 }
 
-@media only screen and (min-width: 768px) {
-	nav { flex-direction: row; }
-
-	.project-container { display: flex;}
-
-	.project-container .project-list { width: 20%; }
-
-	.project-container .project { flex: 1; }
+form input#tlemail {
+	width: calc(100% - 2 * (2px + 0.7em));
 }
-*/
+
+form input.button {
+	float: right;
+}
+
+form input.button:hover {
+	background: #4af;
+}
+
+body {
+	font-family: sans-serif;
+	line-height: 1.35;
+	font-size:   calc(16.5px + 0.4vw);
+	max-width:   39.5em;
+	margin:      auto;
+	padding:     calc(6vw - 0.75em);
+}
+
+a.external::after {
+	content: "↗";
+}
+
+header {
+	margin-bottom: 2em;
+}
+
+.title {
+	font-size:   150%;
+	font-weight: bold;
+}
+
+.title, main a::after, main a:hover {
+	color: #4af;
+}
+
+main a {
+	color: inherit;
+}
+
+main a::after {
+	content: "°";
+}
 
 ul.topnav {
 	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
-	background-color: #333;
+	overflow:        hidden;
 }
 
-ul.topnav li {float: left;}
+.topnav img {
+	width:  2.5em;
+	height: 2.5em;
+}
+
+ul.topnav li {
+	float:         left;
+	padding-right: 1em;
+}
 
 ul.topnav li a {
-	display: block;
-	color: white;
-	text-align: center;
-	padding: 14px 16px;
+	display:         block;
+	color:           inherit;
+	text-align:      center;
 	text-decoration: none;
+	padding-bottom:  2px;
 }
 
-ul.topnav li a:hover:not(.active) {background-color: #111;}
+h1 {
+	font-size:     130%;
+	margin-bottom: 0.5em;
+}
 
-ul.topnav li a.active {background-color: #4CAF50;}
+p, h2 {
+	margin-bottom: 1em;
+}
 
-ul.topnav li.right {float: right;}
+time {
+	font-style: italic;
+}
+
+h2 {
+	font-size: 120%;
+}
+
+ul.topnav li a:hover {
+	border-bottom:  2px solid black;
+	padding-bottom: 0;
+}
+

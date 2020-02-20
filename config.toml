@@ -1,6 +1,6 @@
 baseURL = "http://www.yoedistro.org/"
 languageCode = "en-us"
-title = "Yoe Distribution"
+title = "The Yoe Distribution"
 theme = "basic"
 
 [params]
