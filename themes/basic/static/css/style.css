@@ -1,3 +1,16 @@
+@font-face {
+	font-family: 'Fira Sans';
+	src:         url('/FiraSans-Regular.woff');
+}
+@font-face {
+	font-family: 'Fira Sans Medium';
+	src:         url('/FiraSans-Medium.woff');
+}
+@font-face {
+	font-family: 'Fira Sans Italic';
+	src:         url('/FiraSans-Italic.woff');
+}
+
 * {
 	margin:  0;
 	padding: 0;
@@ -12,13 +25,14 @@ form {
 }
 
 form input {
-	font-family:  inherit;
-	font-size:    inherit;
-	color:        inherit;
-	background:   inherit;
-	border:       2px solid black;
-	padding:      0.5em 0.7em;
-	display:      block;
+	font-family:   inherit;
+	font-size:     inherit;
+	color:         inherit;
+	background:    inherit;
+	border:        2px solid black;
+	border-radius: 0;
+	padding:       0.5em 0.7em;
+	display:       block;
 }
 
 form input#tlemail {
@@ -33,10 +47,19 @@ form input.button:hover {
 	background: #4af;
 }
 
+.title, h1, h2, strong {
+	font-family: 'Fira Sans Medium', sans-serif;
+	font-weight: normal;
+}
+
+emph {
+	font-family: 'Fira Sans Italic', sans-serif;
+}
+
 body {
-	font-family: sans-serif;
+	font-family: 'Fira Sans', sans-serif;
 	line-height: 1.35;
-	font-size:   calc(16.5px + 0.4vw);
+	font-size:   calc(12.75px + 0.65vw);
 	max-width:   39.5em;
 	margin:      auto;
 	padding:     calc(6vw - 0.75em);
@@ -51,8 +74,7 @@ header {
 }
 
 .title {
-	font-size:   150%;
-	font-weight: bold;
+	font-size: 150%;
 }
 
 .title, main a::after, main a:hover {
