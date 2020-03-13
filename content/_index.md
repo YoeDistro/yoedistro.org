@@ -27,7 +27,7 @@ init-system, graphics libraries, windowing system, etc.
 
 ## Well Documented
 
-Clear documentation on how to get started and accomplish practical tasks.
+Clear documentation on how to get started and accomplish common tasks.
 
 ## Broad architecture support
 
