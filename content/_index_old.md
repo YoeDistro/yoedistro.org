@@ -2,8 +2,11 @@
 date: 2020-02-14T12:07:42-05:00
 ---
 
-The Yoe Distribution is a collection of documentation and best practices using
-the OpenEmbedded build system and tooling from the Yocto project to create
+The Yoe Distribution is a collection of documentation and best practices that
+will help you efficiently build Embedded Linux images and maintain them over
+your project lifecycle.
+
+using the OpenEmbedded build system and tooling from the Yocto project to create
 products. This distribution does not end at demo images but rather begins there.
 
 ## Simple
