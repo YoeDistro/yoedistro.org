@@ -15,12 +15,14 @@ application to 64-bit. However it is essential for complete solution.
 
 # Introduction
 
-Plenty of new SBCs and SOMs are increasingly being designed using 64bit ARM
+Many new SBCs and SOMs are increasingly being designed using the 64bit ARM
 (aarch64) CPU architecture. Examples include the RaspberryPI3 (cortext-a53),
 RaspberryPI4 (cortex-a72), and iMX8 based SOMs -- all use the armv8+
 architecture. The board support packages for these platforms all support native
-64bit on these platforms and are quite stable. However some application stacks
-may still require 32bit mode support for various reasons.
+64bit on these platforms and are quite stable. However some applications stacks
+may still require 32bit mode support for various reasons. Additionally, 64-bit
+applications typically use more DRAM and may perform slower than the same
+application compiled in 32-bit mode.
 
 # Choices
 
