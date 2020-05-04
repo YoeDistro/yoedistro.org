@@ -13,7 +13,7 @@
 
 * {
 	margin:  0;
-	padding: 0;
+	/*padding: 0;*/
 }
 
 p, form input {
@@ -133,4 +133,3 @@ ul.topnav li a:hover {
 	border-bottom:  2px solid black;
 	padding-bottom: 0;
 }
-
