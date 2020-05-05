@@ -13,7 +13,7 @@
 
 * {
 	margin:  0;
-	padding: 0;
+	/*padding: 0;*/
 }
 
 p, form input {
@@ -113,8 +113,21 @@ ul.topnav li a {
 }
 
 h1 {
+	margin-top: 1em;
 	font-size:     130%;
 	margin-bottom: 0.5em;
+}
+
+ul {
+	margin-bottom: 1em;
+}
+
+ol {
+	margin-bottom: 1em;
+}
+
+div.highlight {
+	margin-bottom: 1em;
 }
 
 p, h2 {
@@ -126,6 +139,7 @@ time {
 }
 
 h2 {
+	top-bottom: 1em;
 	font-size: 120%;
 }
 
@@ -133,4 +147,3 @@ ul.topnav li a:hover {
 	border-bottom:  2px solid black;
 	padding-bottom: 0;
 }
-
