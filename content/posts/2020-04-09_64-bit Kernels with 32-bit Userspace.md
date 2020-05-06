@@ -1,7 +1,7 @@
 +++
 title = "64 Bit Kernels With 32 Bit Userspace"
 date = 2020-04-09T08:31:02-07:00
-draft = true
+draft = false
 author = "Khem Raj"
 +++
 
