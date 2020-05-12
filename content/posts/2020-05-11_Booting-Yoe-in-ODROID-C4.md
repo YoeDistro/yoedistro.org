@@ -27,6 +27,7 @@ OpenEmbedded allows to use SOC specific optimized flags to build images to squee
 and therefore new tune file to enumerate cortex-a55 specific tuning options is added
 
 ```
+
 DEFAULTTUNE ?= "cortexa55"
 
 TUNEVALID[cortexa55] = "Enable Cortex-A55 specific processor optimizations"
@@ -97,6 +98,8 @@ sudo eject /dev/sdX
 
 power-on and image should boot into console
 
+![htop with Sato and Kiosk Browser](/images/posts/2020-05-11_Booting-Yoe-in-ODROID-C4/htop-on-c4.jpg)
+
 ## Enabling 3.2 Inch LCD Shield
 
 It requires enabling it in device tree and at the same time disabling spidev to avoid conflicts, the changes
@@ -132,7 +135,10 @@ qt-kiosk-browser --no-sandbox /etc/qt-kiosk-browser.conf
 
 ## what works
 
-X11 over fbdev and plain lunuxfb backend works fine
+X11 over fbdev and plain lunuxfb backend works fine, it consumes 169M when using just sato UI,
+when launching kiosk browser, memory consumption increases to approximately 225M
+
+![Sato UI on C4](/images/posts/2020-05-11_Booting-Yoe-in-ODROID-C4/IMG-4412.jpg)
 
 ## Further work
 
