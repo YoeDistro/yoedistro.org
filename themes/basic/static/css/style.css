@@ -85,10 +85,6 @@ main a {
 	color: inherit;
 }
 
-main a::after {
-	content: "°";
-}
-
 ul.topnav {
 	list-style-type: none;
 	overflow:        hidden;
