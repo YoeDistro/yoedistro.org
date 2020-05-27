@@ -73,12 +73,11 @@ require conf/machine/include/odroid-arm-defaults.inc
 
 ## Recipes for Kernel and Bootloader
 
-While upstream support for Amlogic SOCs is found in the mainline kernel, here
-emphasis is to port the Odroid kernel since that will support needed peripherals
-out of box. Eventually it might be good to support mainline kernel. Hardkernel
-currently added full support for C4 into 4.9. Similarly, the recipe for u-boot
-2015.01 is added since that is the officially supported bootloader from
-Hardkernel.
+While upstream support for Amlogic SOCs is found in the mainline kernel and
+Hardkernel added support for the C4 into 4.9, we still needed to update recipes
+and add support for a few of the C4 peripherals. Eventually it might be good to
+upstream these changes. Similarly, the recipe for u-boot 2015.01 is added since
+that is the officially supported bootloader from Hardkernel.
 
 - [Kernel](https://github.com/akuster/meta-odroid/blob/master/recipes-kernel/linux/linux-hardkernel_6.9.bb)
 - [boot loader](https://github.com/akuster/meta-odroid/blob/master/recipes-bsp/u-boot/u-boot-hardkernel_2015.01.bb)
@@ -91,7 +90,7 @@ to do workspace setup, and a new file (which is just a symlink) to use ODROID-C4
 is added as
 [odroid-c4-hardkernel-envsetup](https://github.com/YoeDistro/yoe-distro/blob/master/odroid-c4-hardkernel-envsetup.sh)
 
-## Building yoe-simple-image
+## Building `yoe-simple-image`
 
 - `git clone --recurse-submodules -j8 -b master git://github.com/YoeDistro/yoe-distro.git yoe`
 - `cd yoe`
@@ -111,10 +110,11 @@ Using the
 [3.2 Inch LCD Shield](https://www.hardkernel.com/shop/c1-3-2inch-tfttouchscreen-shield/)
 requires enabling it in the device tree and at the same time disabling spidev to
 avoid conflicts -- the changes are applied in the kernel via a
-[patch](https://github.com/akuster/meta-odroid/blob/master/recipes-kernel/linux/linux-hardkernel-4.9/0001-ODROID-C4-Enable-LCD-and-Touchscreen.patch)
+[patch](https://github.com/akuster/meta-odroid/blob/master/recipes-kernel/linux/linux-hardkernel-4.9/0001-ODROID-C4-Enable-LCD-and-Touchscreen.patch).
 
-Building yoe-simple-image with this change will enable it and `/dev/fb4` should
-become available which is implemented in the fb_hktft32 framebuffer driver.
+Building `yoe-simple-image` with this change will enable it and `/dev/fb4`
+should become available which is implemented in the fb_hktft32 framebuffer
+driver.
 
 ## Kiosk Broser on the LCD Shield
 
