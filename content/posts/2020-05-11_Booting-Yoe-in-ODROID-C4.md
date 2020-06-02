@@ -1,7 +1,7 @@
 +++
 title = "Booting Yoe on the ODROID-C4"
 date = 2020-05-11T08:31:02-07:00
-draft = true
+draft = false
 author = "Khem Raj"
 +++
 
