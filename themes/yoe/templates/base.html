@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+    <meta name="description" content="{{ config.description }}">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path='rss.xml') }}">
+    <style>
+        /* Reset */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        * {
+            margin: 0;
+        }
+        body {
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        img, svg {
+            display: block;
+            max-width: 100%;
+        }
+        p, h1, h2, h3, h4 {
+            overflow-wrap: break-word;
+        }
+
+        /* Base */
+        :root {
+            --yoe-primary: #0891b2;
+            --yoe-primary-dark: #0e7490;
+            --yoe-accent: #06b6d4;
+            --text-primary: #2d2d2d;
+            --text-secondary: #4a4a4a;
+            --border-color: #e5e7eb;
+            --bg-light: #f8f9fa;
+        }
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-primary);
+            background: #fff;
+        }
+        a {
+            color: var(--yoe-primary);
+            text-decoration: none;
+        }
+        a:hover {
+            color: var(--yoe-primary-dark);
+        }
+        h1, h2, h3, h4 {
+            line-height: 1.3;
+            margin-bottom: 0.5rem;
+        }
+        p {
+            margin-bottom: 1rem;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Navigation */
+        header {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        header nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 0.5rem;
+        }
+        header nav a {
+            color: var(--text-secondary);
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            transition: color 0.2s, background 0.2s;
+        }
+        header nav a:hover {
+            color: var(--yoe-primary);
+            background: var(--bg-light);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 500;
+            text-align: center;
+            cursor: pointer;
+            transition: background 0.2s, border-color 0.2s;
+            border: 1px solid transparent;
+        }
+        .btn-primary {
+            background: var(--yoe-primary);
+            color: #fff;
+            border-color: var(--yoe-primary);
+        }
+        .btn-primary:hover {
+            background: var(--yoe-primary-dark);
+            border-color: var(--yoe-primary-dark);
+            color: #fff;
+        }
+        .btn-secondary {
+            background: #fff;
+            color: var(--text-primary);
+            border-color: var(--border-color);
+        }
+        .btn-secondary:hover {
+            background: var(--bg-light);
+            border-color: var(--text-secondary);
+            color: var(--text-primary);
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+        }
+        .hero-logo {
+            width: 120px;
+            height: auto;
+            margin: 0 auto 1.5rem;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        .cta {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 0;
+        }
+        .feature {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            background: #fff;
+            transition: border-color 0.2s;
+            text-align: center;
+        }
+        .feature:hover {
+            border-color: var(--yoe-accent);
+        }
+        .feature-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.75rem;
+        }
+        .feature h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .feature p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 0;
+        }
+        .logo img {
+            height: 32px;
+            width: auto;
+        }
+
+        /* Main */
+        main {
+            padding-bottom: 2rem;
+        }
+        main section {
+            margin-top: 3rem;
+        }
+        main section:first-child {
+            margin-top: 0;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid var(--border-color);
+            margin-top: 3rem;
+            color: var(--text-secondary);
+        }
+        .footer-icon {
+            color: var(--text-secondary);
+            transition: color 0.2s;
+        }
+        .footer-icon:hover {
+            color: var(--yoe-primary);
+        }
+
+        /* Blog */
+        article header {
+            margin-bottom: 2rem;
+        }
+        .post-meta {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+        .post-list h3 {
+            margin-bottom: 0.25rem;
+        }
+        .post-list h3 a {
+            color: var(--yoe-primary-dark);
+        }
+        .post-list h3 a:hover {
+            color: var(--yoe-primary);
+        }
+
+        /* Newsletter */
+        .newsletter {
+            background: var(--bg-light);
+            padding: 2.5rem;
+            border-radius: 8px;
+            text-align: center;
+            margin: 3rem 0;
+            border: 1px solid var(--border-color);
+        }
+        .newsletter h3 {
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+        .newsletter p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        /* Rolling Release Section */
+        .rolling-release {
+            background: linear-gradient(135deg, #f0fdfa 0%, #ecfeff 100%);
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            margin: 3rem 0;
+        }
+        .rolling-intro {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        .rolling-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+        .rolling-feature {
+            text-align: center;
+            padding: 1rem;
+        }
+        .rolling-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.75rem;
+        }
+        .rolling-feature h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--yoe-primary-dark);
+        }
+        .rolling-feature p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 0;
+        }
+
+        /* Platforms Section */
+        .platforms {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .platform {
+            text-align: center;
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: #fff;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+        .platform:hover {
+            border-color: var(--yoe-accent);
+            transform: translateY(-2px);
+        }
+        .platform h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .platform p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0;
+        }
+        .platform.featured {
+            border-color: var(--yoe-primary);
+            background: linear-gradient(135deg, #f0fdfa 0%, #fff 100%);
+        }
+        .platform.featured h4 {
+            color: var(--yoe-primary-dark);
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            header nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            header nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.25rem;
+            }
+            header nav a {
+                padding: 0.5rem;
+                font-size: 0.9rem;
+            }
+            .hero {
+                padding: 2rem 0;
+            }
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .hero-logo {
+                width: 80px;
+                margin: 0 auto 1rem;
+            }
+            .cta {
+                flex-direction: column;
+                align-items: center;
+            }
+            .cta .btn {
+                width: 100%;
+                max-width: 250px;
+            }
+            .section-title {
+                font-size: 1.25rem;
+            }
+            .features {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .feature {
+                padding: 1.25rem;
+            }
+            .rolling-release {
+                padding: 2rem 1rem;
+                margin: 2rem 0;
+                border-radius: 8px;
+            }
+            .rolling-intro {
+                font-size: 1rem;
+            }
+            .rolling-features {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .platforms {
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+            .platform {
+                padding: 1rem;
+            }
+            .platform h4 {
+                font-size: 1rem;
+            }
+            .platform p {
+                font-size: 0.85rem;
+            }
+            .newsletter {
+                padding: 1.5rem 1rem;
+                margin: 2rem 0;
+            }
+            .newsletter p {
+                font-size: 0.95rem;
+            }
+            .newsletter p br {
+                display: none;
+            }
+        }
+        @media (max-width: 400px) {
+            .platforms {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    {% block head %}{% endblock head %}
+</head>
+<body>
+    <header class="container">
+        <nav>
+            <ul>
+                <li>
+                    <a href="{{ get_url(path='/') }}" class="logo">
+                        <img src="{{ get_url(path='images/yoe-logo.png') }}" alt="Yoe Logo">
+                    </a>
+                </li>
+            </ul>
+            <ul>
+                <li><a href="{{ get_url(path='/') }}">Home</a></li>
+                <li><a href="{{ get_url(path='/blog') }}">Blog</a></li>
+                <li><a href="{{ config.extra.docs_url }}" target="_blank">Docs</a></li>
+                <li><a href="{{ config.extra.forum_url }}" target="_blank">Forum</a></li>
+                <li><a href="{{ config.extra.github_url }}" target="_blank">GitHub</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        {% block content %}{% endblock content %}
+    </main>
+
+    <footer class="container">
+        <p>
+            <a href="{{ config.extra.github_url }}" class="footer-icon" aria-label="GitHub">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+        </p>
+        <p>
+            <small>&copy; {{ now() | date(format="%Y") }} Yoe Distro</small>
+        </p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,17 @@
+# Yoe Distro Website Configuration
+base_url = "https://yoedistro.org"
+title = "Yoe Distro"
+description = "An embedded Linux distribution built on Yocto and OpenEmbedded for product development"
+theme = "yoe"
+compile_sass = false
+build_search_index = false
+generate_feeds = true
+feed_filenames = ["rss.xml"]
+
+[extra]
+logo = true
+github_url = "https://github.com/YoeDistro/yoe-distro"
+docs_url = "https://github.com/YoeDistro/yoe-distro/tree/master/docs"
+forum_url = "https://community.tmpdir.org/"
+
+taxonomies = []

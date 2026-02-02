@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+    <img src="{{ get_url(path='images/yoe-logo.png') }}" alt="Yoe Logo" class="hero-logo">
+    <h1>Meet Yoe</h1>
+    <p>An embedded Linux distribution built on Yocto and OpenEmbedded, designed for real product development.</p>
+    <div class="cta">
+        <a href="{{ config.extra.github_url }}" class="btn btn-primary">Get Started</a>
+        <a href="{{ config.extra.docs_url }}" class="btn btn-secondary">Documentation</a>
+    </div>
+</section>
+
+<section>
+    <h3 class="section-title">Why Yoe?</h3>
+    <div class="features">
+    <article class="feature">
+        <span class="feature-icon">✨</span>
+        <h3>Simple</h3>
+        <p>Logical directory layout with minimal abstraction. Spend less time figuring out complex tooling and more time doing real work.</p>
+    </article>
+
+    <article class="feature">
+        <span class="feature-icon">⚙️</span>
+        <h3>Sane Defaults</h3>
+        <p>Includes default policies and templates so you don't spend hours searching for obscure settings to enable commonly used features.</p>
+    </article>
+
+    <article class="feature">
+        <span class="feature-icon">🐳</span>
+        <h3>Maintainable</h3>
+        <p>Docker container provides a consistent build environment across different host systems over your entire product lifecycle.</p>
+    </article>
+
+    <article class="feature">
+        <span class="feature-icon">📚</span>
+        <h3>Well Documented</h3>
+        <p>Clear documentation helps you quickly accomplish common tasks and better understand how Yocto/OpenEmbedded works.</p>
+    </article>
+
+    <article class="feature">
+        <span class="feature-icon">🔁</span>
+        <h3>Reproducible</h3>
+        <p>Lock dependencies to known versions. Manage layers through git submodules for consistent, repeatable builds.</p>
+    </article>
+
+    <article class="feature">
+        <span class="feature-icon">🪶</span>
+        <h3>Lightweight</h3>
+        <p>Supports musl libc and opkg for minimal footprint images. Build exactly what you need, nothing more.</p>
+    </article>
+    </div>
+</section>
+
+<section class="rolling-release">
+    <h3 class="section-title">Always Current</h3>
+    <p class="rolling-intro">Yoe is a rolling distribution with monthly releases, keeping your products secure and up-to-date.</p>
+    <div class="rolling-features">
+        <div class="rolling-feature">
+            <span class="rolling-icon">🔒</span>
+            <h4>Security First</h4>
+            <p>Stay ahead of CVEs with regular security patches and updates</p>
+        </div>
+        <div class="rolling-feature">
+            <span class="rolling-icon">🚀</span>
+            <h4>Latest Features</h4>
+            <p>Access new kernel versions, toolchains, and package updates</p>
+        </div>
+        <div class="rolling-feature">
+            <span class="rolling-icon">📅</span>
+            <h4>Monthly Releases</h4>
+            <p>Predictable release cadence you can plan around</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h3 class="section-title">Supported Platforms</h3>
+    <div class="platforms">
+        <div class="platform">
+            <h4>Raspberry Pi</h4>
+            <p>All models from Pi Zero to Pi 5</p>
+        </div>
+        <div class="platform">
+            <h4>NXP i.MX8</h4>
+            <p>Industrial-grade ARM Cortex-A processors</p>
+        </div>
+        <div class="platform">
+            <h4>NVIDIA Orin</h4>
+            <p>High-performance AI and robotics</p>
+        </div>
+        <div class="platform featured">
+            <h4>Your Product</h4>
+            <p>Custom board support for your hardware</p>
+        </div>
+    </div>
+</section>
+
+<section class="newsletter">
+    <h3>Stay Updated</h3>
+    <p>Get tips on effectively using Linux in your product development.<br>Learn about the latest Embedded Linux developments and best practices.</p>
+    <script async data-uid="f8b5a034b3" src="https://tmpdir.ck.page/f8b5a034b3/index.js"></script>
+</section>
+
+{% if section.pages | length > 0 %}
+<section>
+    <h3 class="section-title">Recent Posts</h3>
+    <ul class="post-list">
+        {% for page in section.pages | slice(end=3) %}
+        <li>
+            <h3><a href="{{ page.permalink }}">{{ page.title }}</a></h3>
+            <p class="post-meta">{{ page.date | date(format="%B %d, %Y") }}</p>
+            {% if page.summary %}
+            <p>{{ page.summary | safe }}</p>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+    <p><a href="{{ get_url(path='/blog') }}">View all posts &rarr;</a></p>
+</section>
+{% endif %}
+{% endblock content %}

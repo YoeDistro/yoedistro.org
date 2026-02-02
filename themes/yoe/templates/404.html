@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}Page Not Found | {{ config.title }}{% endblock title %}
+
+{% block content %}
+<section style="text-align: center; padding: 4rem 0;">
+    <h1>404</h1>
+    <p>The page you're looking for doesn't exist.</p>
+    <a href="{{ get_url(path='/') }}" role="button">Go Home</a>
+</section>
+{% endblock content %}
