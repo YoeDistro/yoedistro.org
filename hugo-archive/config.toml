@@ -1,7 +1,7 @@
 baseURL = "http://www.yoedistro.org/"
 languageCode = "en-us"
 title = "The Yoe Distribution"
-theme = "basic"
+theme = "hextra"
 
 [params]
   featured_image = "/images/yoe-logo.png"
