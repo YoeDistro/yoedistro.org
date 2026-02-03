@@ -4,20 +4,20 @@
 # Usage: source envsetup.sh
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-DEPLOY_TARGET="yoedistro.org:/srv/http/yoe/main/"
+DEPLOY_TARGET="yoedistro.org:/srv/http/yoe/website/"
 
 yoe_deploy() {
-    echo "Building site with Zola..."
-    cd "$SCRIPT_DIR" || return 1
-    zola build || return 1
-    echo "Deploying to $DEPLOY_TARGET..."
-    rsync -avz --delete public/ "$DEPLOY_TARGET"
+	echo "Building site with Zola..."
+	cd "$SCRIPT_DIR" || return 1
+	zola build || return 1
+	echo "Deploying to $DEPLOY_TARGET..."
+	rsync -avz --delete public/ "$DEPLOY_TARGET"
 }
 
 yoe_serve() {
-    echo "Starting Zola development server..."
-    cd "$SCRIPT_DIR" || return 1
-    zola serve
+	echo "Starting Zola development server..."
+	cd "$SCRIPT_DIR" || return 1
+	zola serve
 }
 
 echo "Yoe Distro website build environment loaded."
