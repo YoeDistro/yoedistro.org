@@ -18,8 +18,8 @@ reduce host dependencies. As such, it includes:
   distribution policies, image recipes, and other misc recipies. The Yoe
   Distribution defaults to features and options most systems will need so is a
   great starting point.
-- [configuration options](https://github.com/YoeDistro/yoe-distro/tree/master/docs/yoe-profile.md)
+- [configuration options](https://docs.yoedistro.org/yoe-profile.html)
   for common technology selections (libc, graphics, and init system)
 - a [docker image](https://hub.docker.com/r/yoedistro/yoe-build) that can be
   used to provide a controlled set of host dependencies.
-- [documentation](https://github.com/YoeDistro/yoe-distro/tree/master/docs)
+- [documentation](https://docs.yoedistro.org)
