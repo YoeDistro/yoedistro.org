@@ -11,7 +11,7 @@ feed_filenames = ["rss.xml"]
 [extra]
 logo = true
 github_url = "https://github.com/YoeDistro/yoe-distro"
-docs_url = "https://github.com/YoeDistro/yoe-distro/tree/master/docs"
+docs_url = "https://docs.yoedistro.org"
 forum_url = "https://community.tmpdir.org/"
 
 taxonomies = []
